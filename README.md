@@ -12,7 +12,7 @@
 
 | Name | GitHub | Role | Leader |
 |---|---|---|---|
-| 〈Last, First〉 | @〈username〉 | 〈e.g. backend, docs lead〉 | ✅ |
+<!-- | 〈Last, First〉 | @〈username〉 | 〈e.g. backend, docs lead〉 | ✅ | -->
 | 〈Cao, Delvin〉 | @〈sopper75〉 | 〈Lead Organizer〉 | ✅ |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
