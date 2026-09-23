@@ -1,19 +1,19 @@
-# CPSC 490 — Group 〈19〉 〈Titan Security〉
+# CPSC 490 - Group 19 - Titan Security
 
 > **Copy this file to `README.md` in YOUR repository and fill it in.**
 > (In this example repository the root `README.md` is the setup guide, so the
 > team README model lives here.)
 
-**Project title:** 〈TBD〉
+**Project title:** TBD
 **Sponsor:** 〈RTX-3 / EL-1 / SNX-2 / independent〉
-**Section:** 〈05 (Thu)〉
+**Section:** 05 (Thu)
 
 ## Team
 
 | Name | GitHub | Role | Leader |
 |---|---|---|---|
 | 〈Last, First〉 | @〈username〉 | 〈e.g. backend, docs lead〉 | ✅ |
-| 〈Cao, Delvin〉 | @〈sopper75〉 | 〈Lead Organizer〉 | ✅ |
+| Cao, Delvin | @sopper75 | Lead Organizer | ✅ |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 
@@ -22,7 +22,7 @@
 ## Links
 
 - **Proposal:** [`proposal/proposal.md`](proposal/proposal.md)
-- **Project board:** 〈paste your Projects board URL〉
+- **Project board:** [`projects/1`](https://github.com/users/sopper75/projects/1)
 - **Specifications:** [`docs/specs/`](docs/specs/) · **Designs:** [`docs/design/`](docs/design/)
 - **Prototype:** [`prototype/`](prototype/) — run instructions in its README
 - **Sprint reviews:** [`docs/sprint-reviews/`](docs/sprint-reviews/)
