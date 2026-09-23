@@ -1,4 +1,4 @@
-# CPSC 490 — Group 〈N〉 〈Group Name〉
+# CPSC 490 — Group 〈19〉 〈Titan Security〉
 
 > **Copy this file to `README.md` in YOUR repository and fill it in.**
 > (In this example repository the root `README.md` is the setup guide, so the
