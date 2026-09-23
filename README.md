@@ -4,9 +4,9 @@
 > (In this example repository the root `README.md` is the setup guide, so the
 > team README model lives here.)
 
-**Project title:** 〈Title〉
+**Project title:** 〈TBD〉
 **Sponsor:** 〈RTX-3 / EL-1 / SNX-2 / independent〉
-**Section:** 〈01 (Tue) | 05 (Thu)〉
+**Section:** 〈05 (Thu)〉
 
 ## Team
 
@@ -17,7 +17,7 @@
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 
-**Contact person:** 〈Name〉 — 〈email〉
+**Contact person:** 〈Delvin〉 — 〈delvincao@csu.fullerton.edu〉
 
 ## Links
 
