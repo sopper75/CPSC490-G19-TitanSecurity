@@ -4,8 +4,8 @@
 > (In this example repository the root `README.md` is the setup guide, so the
 > team README model lives here.)
 
-**Project title:** TBD
-**Sponsor:** 〈RTX-3 / EL-1 / SNX-2 / independent〉
+**Project title:** Radar Over Wifi (ROW) Detection for Flying Object Detection
+**Sponsor:** RTX-2
 **Section:** 05 (Thu)
 
 ## Team
