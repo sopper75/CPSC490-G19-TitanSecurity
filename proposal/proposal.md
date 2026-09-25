@@ -3,7 +3,7 @@
 **Department of Computer Science**
 **CPSC 490 Undergraduate Seminar in Computer Science — Proposal for Capstone Project**
 
-**Group 〈N〉 — 〈Group Name〉** · Sponsor: 〈RTX-3 / EL-1 / SNX-n / independent〉
+**Group 19 — Titan Security** · Sponsor: RTX-2
 Authors: 〈Last, First (GitHub username)〉, 〈…〉
 Date: 〈YYYY-MM-DD〉
 
