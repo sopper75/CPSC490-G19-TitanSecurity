@@ -14,7 +14,7 @@
 |---|---|---|---|
 | 〈Last, First〉 | @〈username〉 | 〈e.g. backend, docs lead〉 | ✅ |
 | Cao, Delvin | @sopper75 | Lead Organizer | ✅ |
-| 〈…〉 | @〈…〉 | 〈…〉 | |
+| Do, Jonathan | @23jdo5 | Team Member | ✅ |
 | 〈…〉 | @〈…〉 | 〈…〉 | |
 
 **Contact person:** 〈Delvin〉 — 〈delvincao@csu.fullerton.edu〉
