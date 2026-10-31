@@ -51,13 +51,13 @@ These approaches differ in their measurements, targets, and outputs. The propose
 
 ### 1.2 Problem Statements
 
-**P1. Reproducible measurements:** 
+**P1. Reproducible measurements:**
 The project needs a repeatable way to capture and save usable CSI measurements. Equipment placement, configuration, and environmental changes can affect the collected data, making recordings difficult to compare. Without consistent recording procedures and data-quality checks, apparent differences between experiments could result from the setup rather than drone activity. Addressing this problem will allow the team to reproduce experiments, identify recording problems, and build a reliable dataset for later analysis. This problem is addressed by Goal 1 and Objectives 1.1–1.2.
 
-**P2. Target discrimination and estimation:** 
+**P2. Target discrimination and estimation:**
 Changes in wireless measurements do not uniquely indicate a drone. Human movement, other moving objects, and interference may also affect the signal. The project must therefore investigate whether drone-related patterns can be separated from non-drone conditions rather than treating every change as a detection. Estimating position and movement presents an additional challenge because detecting activity does not directly reveal where the target is. Addressing these problems could make the prototype’s output more informative while reducing misleading alerts and missed detections. This problem is addressed by Goal 2 and Objectives 2.1–2.3.
 
-**P3. Performance and practicality:** 
+**P3. Performance and practicality:**
 The prototype’s detection accuracy, false-detection rate, effective range, and position-estimation performance are not yet known. A successful demonstration under one condition would not establish reliable performance across different distances and background conditions. The team must conduct controlled evaluations and report both successful and unsuccessful results. Equipment cost, portability, and setup effort must also be documented before claiming practical advantages. Since the team does not have access to a conventional radar system, comparisons will use published information and acknowledge differences in capabilities and test conditions. Addressing this problem will provide evidence of what the prototype can accomplish and where further development is needed. This problem is addressed by Goal 3 and Objectives 3.1–3.3.
 
 ## 2. Goals and Objectives
@@ -172,10 +172,11 @@ technical detail: §3 holds the argument, §4 holds the documents that make it
 buildable. CI gate G9 fails if a document exists in `docs/specs/` or
 `docs/design/` that this section does not link.
 
-| Document                             | Kind          | Covers                               | Issues     |
-| ------------------------------------ | ------------- | ------------------------------------ | ---------- |
-| 〈docs/specs/account-management.md〉 | specification | 〈account management requirements〉  | 〈#n, #n〉 |
-| 〈docs/design/architecture.md〉      | design        | 〈system architecture + data model〉 | 〈#n〉     |
+| Document                                                             | Kind          | Covers                                                                                                | Issues                                                                      |
+| -------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | specification | Hardware configuration, CSI acquisition, timestamped recording, data quality, and acceptance criteria | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) |
+
+The Wi-Fi CSI Sensing Specification defines the technical requirements for Epic #2 and Objectives 1.1 and 1.2. It describes the planned sensing hardware, functional and non-functional requirements, CSI acquisition, timestamped recording procedures, data-quality validation, and measurable acceptance criteria. The document also distinguishes preliminary wireless testing from verified CSI acquisition and identifies hardware compatibility limitations and unresolved technical questions that must be addressed during implementation.
 
 〈The scaffold ships `docs/specs/example-spec.md` and
 `docs/design/example-design.md` as worked examples — read them, then delete
@@ -188,10 +189,11 @@ in its own first lines too (gate G2), so the trail runs both ways.〉
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
-| Issue                                                                  | Type | Activity                                    | Parent     | Owner    | Sprint   |
-| ---------------------------------------------------------------------- | ---- | ------------------------------------------- | ---------- | -------- | -------- |
-| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11) | task | Update proposal sections 0–2                | Standalone | 23jdo5   | Sprint 1 |
-| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20) | task | Clean up proposal header and §2 issue links | Standalone | sopper75 | Sprint 1 |
+| Issue                                                                       | Type | Activity                                    | Parent     | Owner    | Sprint   |
+| --------------------------------------------------------------------------- | ---- | ------------------------------------------- | ---------- | -------- | -------- |
+| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11)      | task | Update proposal sections 0–2                | Standalone | 23jdo5   | Sprint 1 |
+| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20)      | task | Clean up proposal header and §2 issue links | Standalone | sopper75 | Sprint 1 |
+| [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification       | #8         | 23jdo5   | Sprint 2 |
 
 ## 5. Project Outcomes
 
