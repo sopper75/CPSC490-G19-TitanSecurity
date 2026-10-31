@@ -1,6 +1,7 @@
 # Project Proposal — Radar over WiFi
 
-**Department of Computer Science**  
+**Department of Computer Science**
+
 **CPSC 490 Undergraduate Seminar in Computer Science — Proposal for Capstone Project**
 
 **Group G19 — Titan Security** · Sponsor: RTX-2  
@@ -10,7 +11,7 @@ Semester: Fall 2026
 Original proposal date: October 4, 2026  
 Draft revision date: October 8, 2026
 
-**Draft status:** Sections 0–2 combine the team's supplied project description with revised wording and proposed objectives. Sections 3–7 retain the original repository template. The team must review the draft, resolve **TO CONFIRM** fields, add actual issue links, and verify references before submission.
+**Draft status:** Sections 0–2 combine the team's supplied project description with revised wording and proposed objectives. Section 4 now includes the planned Wi-Fi CSI data-flow diagrams and associated design-document references. Sections 3 and 5–7, along with the remaining environment and architecture details in Section 4, still require team completion. The team must review the draft, resolve **TO CONFIRM** fields, add actual issue links, and verify references before submission.
 
 ## 0. Abstract
 
@@ -51,13 +52,16 @@ These approaches differ in their measurements, targets, and outputs. The propose
 
 ### 1.2 Problem Statements
 
-**P1. Reproducible measurements:** 
+**P1. Reproducible measurements:**
+
 The project needs a repeatable way to capture and save usable CSI measurements. Equipment placement, configuration, and environmental changes can affect the collected data, making recordings difficult to compare. Without consistent recording procedures and data-quality checks, apparent differences between experiments could result from the setup rather than drone activity. Addressing this problem will allow the team to reproduce experiments, identify recording problems, and build a reliable dataset for later analysis. This problem is addressed by Goal 1 and Objectives 1.1–1.2.
 
-**P2. Target discrimination and estimation:** 
-Changes in wireless measurements do not uniquely indicate a drone. Human movement, other moving objects, and interference may also affect the signal. The project must therefore investigate whether drone-related patterns can be separated from non-drone conditions rather than treating every change as a detection. Estimating position and movement presents an additional challenge because detecting activity does not directly reveal where the target is. Addressing these problems could make the prototype’s output more informative while reducing misleading alerts and missed detections. This problem is addressed by Goal 2 and Objectives 2.1–2.3.
+**P2. Target discrimination and estimation:**
 
-**P3. Performance and practicality:** 
+Changes in wireless measurements do not uniquely indicate a drone. Human movement, other moving objects, and interference may also affect the signal. The project must therefore investigate whether drone-related patterns can be separated from non-drone conditions rather than treating every change as a detection. Estimating position and movement presents an additional challenge because detecting activity does not directly reveal where the target is. Addressing these problems could make the prototype’s output more informative while reducing misleading alerts and missed detections. These problems are addressed by Goal 2 and Objectives 2.1–2.3.
+
+**P3. Performance and practicality:**
+
 The prototype’s detection accuracy, false-detection rate, effective range, and position-estimation performance are not yet known. A successful demonstration under one condition would not establish reliable performance across different distances and background conditions. The team must conduct controlled evaluations and report both successful and unsuccessful results. Equipment cost, portability, and setup effort must also be documented before claiming practical advantages. Since the team does not have access to a conventional radar system, comparisons will use published information and acknowledge differences in capabilities and test conditions. Addressing this problem will provide evidence of what the prototype can accomplish and where further development is needed. This problem is addressed by Goal 3 and Objectives 3.1–3.3.
 
 ## 2. Goals and Objectives
@@ -123,125 +127,94 @@ The proposed radar comparison is literature-based rather than a commitment to ob
 > Describe your proposed approach to solve the problem, specifying how you
 > will achieve the stated goals. List some possible strategies.
 
-〈Your approach — **clear and concise**. State the strategy you chose, the
-alternatives you considered, and the reasoning that decided between them.
-Think of this as the argument, not the manual: a reader should finish this
-section understanding _what_ you will do and _why that_ rather than the
-alternatives.〉
+〈Your approach — **clear and concise**. State the strategy you chose, the alternatives you considered, and the reasoning that decided between them. Think of this as the argument, not the manual: a reader should finish this section understanding _what_ you will do and _why that_ rather than the alternatives.〉
 
-**Keep the details out of this section.** Tooling, platforms, frameworks,
-DBMS choices, environment setup, diagrams, and the work breakdown all belong
-in §4 (Required Environment, Resources, and Planned Activities). If a
-sentence here names a version number, a library, or a configuration, it
-probably belongs in §4 — leave a pointer instead ("the implementation stack
-is detailed in §4").
+**Keep the details out of this section.** Tooling, platforms, frameworks, DBMS choices, environment setup, diagrams, and the work breakdown all belong in §4 (Required Environment, Resources, and Planned Activities). If a sentence here names a version number, a library, or a configuration, it probably belongs in §4 — leave a pointer instead ("the implementation stack is detailed in §4").
 
-〈A few paragraphs, or a short list of candidate strategies with one line of
-trade-off each. If it runs past a page, you are writing §4.〉
+〈A few paragraphs, or a short list of candidate strategies with one line of trade-off each. If it runs past a page, you are writing §4.〉
 
 ## 4. Required Environment, Resources, and Planned Activities
 
-> Review the required and available resources and environment to complete
-> your project. For example, server, platform, software tools, operating
-> systems, DBMS, or any required skills.
+> Review the required and available resources and environment to complete your project. For example, server, platform, software tools, operating systems, DBMS, or any required skills.
 >
-> Describe the expected activities to achieve the stated goals, e.g.,
-> software development process.
+> Describe the expected activities to achieve the stated goals, e.g., software development process.
 
-〈Your environment, resources, and planned activities.〉
+〈The team must complete the remaining environment, resources, and planned activities description, including the proposed hardware and software stack and how each component will be used.〉
 
-**Diagrams belong in this section.** Include at minimum a high-level
-architecture diagram and a system (context) diagram; add the ER/EER model and
-a data-flow diagram where they help the reader understand what you are
-building and what it depends on. Draw them with any graphical tool
-(Lucidchart, draw.io, Miro, Mermaid, ERDPlus, Figma), keep the authoritative
-copies in `docs/design/` with both editable source and exported image, and
-reference them here.
+**Design diagrams:** This section includes the Wi-Fi CSI sensing data-flow diagrams. The team must also supply a high-level architecture diagram and a system/context diagram, along with other appropriate design views, and keep authoritative copies in `docs/design/`.
 
-〈Number every figure, caption it, and point at it from the prose — "Figure 1
-shows the three deployment tiers and the trust boundary between them." A
-figure the text never mentions is decoration. See `docs/design/DIAGRAMS.md`
-for tools, conventions, and the rule that every box and arrow must be
-verified against reality.〉
+### Wi-Fi CSI Sensing — Data Flow Design
+
+The proposed Wi-Fi sensing system will collect wireless channel measurements and prepare them for later drone-detection analysis. The data-flow design supports Objective 1.1 (CSI acquisition, issue #8) and Objective 1.2 (timestamped recording and data quality, issue #13).
+
+Figure 1 illustrates the external components involved in the sensing process. The GL.iNet Wi-Fi transmitter sends signals through the experimental environment, where moving objects and interference may affect the wireless channel. A compatible receiver and sensing system will collect measurements and provide recordings and quality reports to the experiment operator. The planned drone detection pipeline will later consume validated CSI data.
+
+![Level 0 CSI data flow showing the transmitter, test environment, sensing system, experiment operator, and future drone detection pipeline](../docs/design/diagrams/csi-dfd-level0.png)
+
+**Figure 1 — Level 0 Wi-Fi CSI Data Flow Diagram.**
+
+Figure 2 expands the sensing system into three proposed processes: capturing CSI measurements, adding timestamps and experimental metadata, and validating recorded data. The design separates raw recordings, validated datasets, and quality reports to support reproducible experiments.
+
+![Level 1 CSI data flow showing measurement capture, timestamping, raw storage, validation, and output datasets](../docs/design/diagrams/csi-dfd-level1.png)
+
+**Figure 2 — Level 1 Wi-Fi CSI Data Flow Diagram.**
+
+Both diagrams describe the planned design rather than completed functionality. Full CSI capture and automated validation have not yet been demonstrated, and the final compatible receiver and acquisition method remain to be confirmed.
+
+The editable Mermaid diagrams, detailed descriptions, and data-flow documentation are maintained in [CSI Data Flow Design](../docs/design/csi-data-flow.md), tracked under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
 ### Specification and design documents
 
-**Every specification and design document the team writes is listed here**
-with the objective it serves. This section is the index of the project's
-technical detail: §3 holds the argument, §4 holds the documents that make it
-buildable. CI gate G9 fails if a document exists in `docs/specs/` or
-`docs/design/` that this section does not link.
+**Every specification and design document the team writes must be listed here** with the objective it serves. This section acts as the index of the project's technical detail. CI gate G9 checks for links to these documents.
 
-| Document                             | Kind          | Covers                               | Issues     |
-| ------------------------------------ | ------------- | ------------------------------------ | ---------- |
-| 〈docs/specs/account-management.md〉 | specification | 〈account management requirements〉  | 〈#n, #n〉 |
-| 〈docs/design/architecture.md〉      | design        | 〈system architecture + data model〉 | 〈#n〉     |
+| Document                                                             | Kind          | Covers                                                    | Issues       |
+| -------------------------------------------------------------------- | ------------- | --------------------------------------------------------- | ------------ |
+| [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | Specification | CSI acquisition, recording, and data-quality requirements | #8, #13, #45 |
+| [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | Design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2     | #8, #13, #47 |
 
-〈The scaffold ships `docs/specs/example-spec.md` and
-`docs/design/example-design.md` as worked examples — read them, then delete
-them once you have your own, and list yours here.〉
+The specification is being reviewed in [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46). The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
-〈Replace these rows with your own. Each document names its epic and stories
-in its own first lines too (gate G2), so the trail runs both ways.〉
+**Remaining documentation:** The team must add other specifications and design documents to this index as they are completed. The repository's worked examples, `docs/specs/example-spec.md` and `docs/design/example-design.md`, should be handled according to the course repository instructions.
 
 ### Planned activities — the work items
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
-| Issue                                                                  | Type | Activity                                    | Parent     | Owner    | Sprint   |
-| ---------------------------------------------------------------------- | ---- | ------------------------------------------- | ---------- | -------- | -------- |
-| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11) | task | Update proposal sections 0–2                | Standalone | 23jdo5   | Sprint 1 |
-| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20) | task | Clean up proposal header and §2 issue links | Standalone | sopper75 | Sprint 1 |
+| Issue                                                                  | Type | Activity                                          | Parent     | Owner    | Sprint   |
+| ---------------------------------------------------------------------- | ---- | ------------------------------------------------- | ---------- | -------- | -------- |
+| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11) | task | Update proposal sections 0–2                      | Standalone | 23jdo5   | Sprint 1 |
+| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20) | task | Clean up proposal header and §2 issue links       | Standalone | sopper75 | Sprint 1 |
+| [#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification             | #8         | 23jdo5   | Sprint 2 |
+| [#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) | task | Create Level 0 and Level 1 CSI data-flow diagrams | #8         | 23jdo5   | Sprint 2 |
 
 ## 5. Project Outcomes
 
-> Describe the outcomes or deliverables, e.g., final project report, user
-> manuals, source code, data or database files, etc.
+> Describe the outcomes or deliverables, e.g., final project report, user manuals, source code, data or database files, etc.
 >
-> Note: the deliverables always include the team GitHub repository, which
-> must already contain prototype v0 (a thin end-to-end proof-of-concept,
-> however small, running when this proposal is submitted). Briefly describe
-> what your v0 demonstrates and how to run it.
+> Note: the deliverables always include the team GitHub repository, which must already contain prototype v0 (a thin end-to-end proof-of-concept, however small, running when this proposal is submitted). Briefly describe what your v0 demonstrates and how to run it.
 
-〈**One or two paragraphs** explaining the project outcome overall — what will
-exist when the project is finished, and what it will let someone do. Keep it
-prose, not a checklist; name the deliverables inside the paragraphs, and say
-briefly what prototype v0 demonstrates today and how to run it.〉
+〈**One or two paragraphs** explaining the project outcome overall — what will exist when the project is finished, and what it will let someone do. Keep it prose, not a checklist; name the deliverables inside the paragraphs, and say briefly what prototype v0 demonstrates today and how to run it.〉
 
 ## 6. Project Timeline
 
-> Identifies tasks (project objectives) to be performed, milestones to be
-> met, and the estimated number of hours for each task.
+> Identifies tasks (project objectives) to be performed, milestones to be met, and the estimated number of hours for each task.
 
-〈**This is the plan for CPSC 491 next semester — the implementation timeline,
-not this semester's proposal work.** Identify the tasks (your objectives from
-§2), the milestones, and the estimated hours for each, in the order they will
-be built. State the assumptions it rests on (sponsor availability, data
-access, hardware).〉
+〈**This is the plan for CPSC 491 next semester** — the implementation timeline, not this semester's proposal work. Identify the tasks (your objectives from §2), the milestones, and the estimated hours for each, in the order they will be built. State the assumptions it rests on (sponsor availability, data access, hardware).〉
 
 | Task (objective) | Milestone | Owner | Est. hours | Spring phase |
 | ---------------- | --------- | ----- | ---------- | ------------ |
 | 〈…〉            | 〈…〉     | 〈…〉 | 〈…〉      | 〈…〉        |
 | 〈…〉            | 〈…〉     | 〈…〉 | 〈…〉      | 〈…〉        |
 
-〈Do **not** put this fall's four proposal sprints here — those live on the
-project board and in `docs/sprint-reviews/`. This section answers "how does
-the system actually get built next semester?"〉
+〈Do **not** put this fall's four proposal sprints here — those live on the project board and in `docs/sprint-reviews/`. This section answers "how does the system actually get built next semester?"〉
 
 ## 7. AI Usage
 
-> Per the course AI policy (see the syllabus, Use of AI Tools), disclose the
-> AI tools used in preparing this proposal and the prototype: which tools,
-> for what tasks (e.g., code generation, test writing, debugging,
-> diagramming), and approximately what fraction of each artifact was
-> AI-assisted.
+> Per the course AI policy (see the syllabus, Use of AI Tools), disclose the AI tools used in preparing this proposal and the prototype: which tools, for what tasks (e.g., code generation, test writing, debugging, diagramming), and approximately what fraction of each artifact was AI-assisted.
 >
-> Reminder: the prose of this proposal must be your own writing. You remain
-> fully responsible for the correctness of all AI-assisted work, including
-> the prototype code.
+> Reminder: the prose of this proposal must be your own writing. You remain fully responsible for the correctness of all AI-assisted work, including the prototype code.
 
-〈Your disclosure. Naming the tool is not disclosure — name what it drafted,
-what fraction of each artifact was AI-assisted, and how you verified it.〉
+〈Your disclosure. Naming the tool is not disclosure — name what it drafted, what fraction of each artifact was AI-assisted, and how you verified it.〉
 
 ## 8. References
 
