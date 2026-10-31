@@ -167,12 +167,16 @@ The editable Mermaid diagrams, detailed descriptions, and data-flow documentatio
 
 **Every specification and design document the team writes must be listed here** with the objective it serves. This section acts as the index of the project's technical detail. CI gate G9 checks for links to these documents.
 
-| Document                                                             | Kind          | Covers                                                    | Issues       |
-| -------------------------------------------------------------------- | ------------- | --------------------------------------------------------- | ------------ |
-| [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | Specification | CSI acquisition, recording, and data-quality requirements | #8, #13, #45 |
-| [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | Design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2     | #8, #13, #47 |
+| Document                                                             | Kind          | Covers                                                                                                | Issues                                                                      |
+| -------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | specification | Hardware configuration, CSI acquisition, timestamped recording, data quality, and acceptance criteria | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) |
+| [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2                                                 | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) |
 
-The specification is being reviewed in [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46). The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
+The Wi-Fi CSI Sensing Specification defines the technical requirements for Epic #2 and Objectives 1.1 and 1.2. It describes the planned sensing hardware, functional and non-functional requirements, CSI acquisition, timestamped recording procedures, data-quality validation, and measurable acceptance criteria. The document also distinguishes preliminary wireless testing from verified CSI acquisition and identifies hardware compatibility limitations and unresolved technical questions that must be addressed during implementation.
+
+The CSI Data Flow Design documents the proposed sensing subsystem through Level 0 and Level 1 diagrams. It identifies external inputs, measurement capture, timestamping, raw recording storage, validation, and the intended downstream detection pipeline. Its editable Mermaid source and exported images are maintained in `docs/design/`.
+
+The specification was merged through [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46). The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
 **Remaining documentation:** The team must add other specifications and design documents to this index as they are completed. The repository's worked examples, `docs/specs/example-spec.md` and `docs/design/example-design.md`, should be handled according to the course repository instructions.
 
@@ -180,12 +184,12 @@ The specification is being reviewed in [PR #46](https://github.com/sopper75/CPSC
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
-| Issue                                                                  | Type | Activity                                          | Parent     | Owner    | Sprint   |
-| ---------------------------------------------------------------------- | ---- | ------------------------------------------------- | ---------- | -------- | -------- |
-| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11) | task | Update proposal sections 0–2                      | Standalone | 23jdo5   | Sprint 1 |
-| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20) | task | Clean up proposal header and §2 issue links       | Standalone | sopper75 | Sprint 1 |
-| [#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification             | #8         | 23jdo5   | Sprint 2 |
-| [#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) | task | Create Level 0 and Level 1 CSI data-flow diagrams | #8         | 23jdo5   | Sprint 2 |
+| Issue                                                                       | Type | Activity                                          | Parent     | Owner    | Sprint   |
+| --------------------------------------------------------------------------- | ---- | ------------------------------------------------- | ---------- | -------- | -------- |
+| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11)      | task | Update proposal sections 0–2                      | Standalone | 23jdo5   | Sprint 1 |
+| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20)      | task | Clean up proposal header and §2 issue links       | Standalone | sopper75 | Sprint 1 |
+| [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification             | #8         | 23jdo5   | Sprint 2 |
+| [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) | task | Create Level 0 and Level 1 CSI data-flow diagrams | #8         | 23jdo5   | Sprint 2 |
 
 ## 5. Project Outcomes
 
@@ -199,11 +203,10 @@ The goals and objectives are listed in §2 as epics and user stories. The follow
 
 > Identifies tasks (project objectives) to be performed, milestones to be met, and the estimated number of hours for each task.
 
-〈**This is the plan for CPSC 491 next semester** — the implementation timeline, not this semester's proposal work. Identify the tasks (your objectives from §2), the milestones, and the estimated hours for each, in the order they will be built. State the assumptions it rests on (sponsor availability, data access, hardware).〉
+〈**This is the plan for CPSC 491 next semester** — the implementation timeline, not this semester's proposal work. Identify the tasks (your objectives from §2), the milestones, and the estimated hours for each task, in the order they will be built. State the assumptions it rests on (sponsor availability, data access, hardware).〉
 
 | Task (objective) | Milestone | Owner | Est. hours | Spring phase |
 | ---------------- | --------- | ----- | ---------- | ------------ |
-| 〈…〉            | 〈…〉     | 〈…〉 | 〈…〉      | 〈…〉        |
 | 〈…〉            | 〈…〉     | 〈…〉 | 〈…〉      | 〈…〉        |
 
 〈Do **not** put this fall's four proposal sprints here — those live on the project board and in `docs/sprint-reviews/`. This section answers "how does the system actually get built next semester?"〉
