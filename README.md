@@ -9,10 +9,10 @@
 | Name             | GitHub           | Role           | Leader |
 | ---------------- | ---------------- | -------------- | ------ |
 | Cao, Delvin      | @sopper75        | Lead Organizer | ✅      |
-| Do, Jonathan     | @23jdo5          | Team Member    | ✅      |
+| Do, Jonathan     | @23jdo5          | Team Member    |        |
 | Sisavath, Chase  | @Badtzi          | Team Member    |        |
-| Headley, Zachary | @Zachary-Headley | Team Member    | ✅      |
-| Le, Alex         | @dappurs         | Team Member    | ✅      |
+| Headley, Zachary | @Zachary-Headley | Team Member    |        |
+| Le, Alex         | @dappurs         | Team Member    |        |
 
 **Contact person:** Delvin — delvincao@csu.fullerton.edu
 
