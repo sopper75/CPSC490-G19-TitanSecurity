@@ -122,6 +122,13 @@ Record the prototype's equipment cost, physical size, weight, and setup time. Co
 
 The proposed radar comparison is literature-based rather than a commitment to obtain radar equipment. Performance thresholds, trial counts, and test distances will be specified before final evaluation. Surrogate targets, if used during development, will be identified separately and will not be presented as evidence of actual drone detection.
 
+### Goal 4: Maintain clear team organization and documentation [[epic: #55]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/55)
+
+**Objective 4.1: Define and document team roles and leadership designation.**  
+Record each team member's role and the designated team leader in the project README. 
+
+[[issue: #17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/<story>).
+
 ## 3. Proposed Approaches
 
 > Describe your proposed approach to solve the problem, specifying how you
