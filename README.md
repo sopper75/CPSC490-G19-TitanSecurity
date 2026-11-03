@@ -8,11 +8,11 @@
 
 | Name             | GitHub           | Role           | Leader |
 | ---------------- | ---------------- | -------------- | ------ |
-| Cao, Delvin      | @sopper75        | Lead Organizer | ✅      |
-| Do, Jonathan     | @23jdo5          | Team Member    |        |
-| Sisavath, Chase  | @Badtzi          | Team Member    |        |
-| Headley, Zachary | @Zachary-Headley | Team Member    |        |
-| Le, Alex         | @dappurs         | Team Member    |        |
+| Cao, Delvin      | @sopper75        | Recorder, Documentation | ✅      |
+| Do, Jonathan     | @23jdo5          | Data Processing    |        |
+| Sisavath, Chase  | @Badtzi          | UI/UX Design    |        |
+| Headley, Zachary | @Zachary-Headley | Testing Environment Lead    |        |
+| Le, Alex         | @dappurs         | Data Collector    |        |
 
 **Contact person:** Delvin — delvincao@csu.fullerton.edu
 
