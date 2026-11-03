@@ -197,6 +197,7 @@ The goals and objectives are listed in §2 as epics and user stories. The follow
 | [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20)      | task | Clean up proposal header and §2 issue links       | Standalone | sopper75 | Sprint 1 |
 | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification             | #8         | 23jdo5   | Sprint 2 |
 | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) | task | Create Level 0 and Level 1 CSI data-flow diagrams | #8         | 23jdo5   | Sprint 2 |
+| [task:#53](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/53) | task | Resolve leadership designation (README team table) | Standalone | sopper75 | Sprint 2 |
 
 ## 5. Project Outcomes
 
