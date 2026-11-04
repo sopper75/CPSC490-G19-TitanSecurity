@@ -64,15 +64,15 @@ The estimates must be compared with recorded reference positions and movements, 
 
 | ID    | Functional Requirement                                                                                                                                       | Related Story |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| FR-01 | When a recording is added to the dataset, the system shall record its condition (drone activity, empty background, human movement, or interference) and the equipment arrangement. | #14 |
-| FR-02 | The dataset shall document the amount of data collected for each condition.                                                                                  | #14           |
-| FR-03 | The dataset shall keep training recordings and evaluation recordings separate.                                                                               | #14           |
-| FR-04 | Each recording shall identify its data source type (live CSI, packet metadata, or synthetic data) as defined in the Wi-Fi CSI Sensing specification.         | #14           |
-| FR-05 | When given a recording, the classifier shall predict drone presence or non-drone.                                                      | #15           |
-| FR-06 | The evaluation shall report the classifier's predictions for drone activity, empty background, human movement, and interference conditions.                  | #15           |
-| FR-07 | When a drone is flown in the controlled test area, the system shall estimate its position and movement.                                                      | #7            |
-| FR-08 | The evaluation shall compare the estimates with recorded reference positions and movements, and report position error and how consistently movement is identified. | #7        |
-| FR-09 | The evaluation shall report conditions where position or movement estimation fails.                                                                          | #7            |
+| FR-01 | When a recording is added to the dataset, the system shall record its condition (drone activity, empty background, human movement, or interference) and the equipment arrangement. | #14           |
+| FR-02 | The dataset shall document the amount of data collected for each condition.                                                                                                        | #14           |
+| FR-03 | The dataset shall keep training recordings and evaluation recordings separate.                                                                                                     | #14           |
+| FR-04 | Each recording shall identify its data source type (live CSI, packet metadata, or synthetic data) as defined in the Wi-Fi CSI Sensing specification.                               | #14           |
+| FR-05 | When given a recording, the classifier shall predict drone presence or non-drone.                                                                                                  | #15           |
+| FR-06 | The evaluation shall report the classifier's predictions for drone activity, empty background, human movement, and interference conditions.                                        | #15           |
+| FR-07 | When a drone is flown in the controlled test area, the system shall estimate its position and movement.                                                                            | #7            |
+| FR-08 | The evaluation shall compare the estimates with recorded reference positions and movements, and report position error and how consistently movement is identified.                 | #7            |
+| FR-09 | The evaluation shall report conditions where position or movement estimation fails.                                                                                                |  #7           |
 
 ### 4.1 Requirements Traceability
 
@@ -92,8 +92,8 @@ Requirements FR-07, FR-08, FR-09 define position and movement estimation and its
 
 | ID     | Requirement                                                                                                                                       | Purpose         |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| NFR-01 | Substitute targets, if used during development, must be identified separately and must not be presented as evidence of actual drone detection.   | Integrity       |
-| NFR-02 | Each recording shall be reproducible from its documented condition and equipment arrangement.                                                     | Reproducibility |       |
+| NFR-01 | Substitute targets, if used during development, must be identified separately and must not be presented as evidence of actual drone detection.    | Integrity       |
+| NFR-02 | Each recording shall be reproducible from its documented condition and equipment arrangement.                                                     | Reproducibility |       
 | NFR-03 | Original recordings shall be preserved when labeled or processed versions are generated.                                                          | Data integrity  |
 | NFR-04 | Another team member shall be able to reproduce the reported predictions from the same recordings and documented procedure.                        | Reproducibility |
 
@@ -162,7 +162,7 @@ Completion of this documentation task does not imply that any detection function
 | ------------------------------------------------------------------------------------------- | ---------------------- |
 | Which classifier approach will be used?                                                     | Data Processing        |
 | How will training and evaluation recordings be split?                                       | Data Processing        |
-| Which drone or substitutes target will be used, and how will substitutes be labeled?           | Data Collection        |
+| Which drone or substitutes target will be used, and how will substitutes be labeled?        | Data Collection        |
 | What is the size of the controlled test area?                                               | Sensing / Evaluation   |
 | How will reference positions and movements be recorded?                                     | Sensing / Evaluation   |
 | How much data per condition is needed?                                                      | Data Collection        |
