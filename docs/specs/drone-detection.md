@@ -172,7 +172,7 @@ These questions will be resolved through hardware verification and team design d
 ## 10. Related Documents
 
 - [Wi-Fi CSI Sensing Specification](wifi-csi-sensing.md)
-- [Evaluation Specification](evaluation.md)
+- Evaluation Specification (epic #4, pending its own PR)
 - [Project Proposal](../../proposal/proposal.md)
 - [Epic #3 — Drone Detection](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/3)
 - [User Story #14 — Labeled CSI Datasets](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/14)
