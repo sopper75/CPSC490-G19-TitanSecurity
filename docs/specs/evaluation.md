@@ -66,15 +66,15 @@ The comparison must identify unavailable data and differences in capabilities or
 
 | ID    | Functional Requirement                                                                                                                       | Related Story |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| FR-01 | When the classifier is run on held-out test recordings, the evaluation shall report drone-detection accuracy, missed detections, and false detections. | #6    |
-| FR-02 | The evaluation report shall define how each metric is calculated.                                                                            | #6            |
-| FR-03 | The evaluation shall present results separately for each tested condition so that the effects of human movement and interference are visible. | #6           |
-| FR-04 | Before testing at multiple distances, the team shall define the distance reference, test arrangement, and criterion for successful detection. | #16          |
-| FR-05 | When testing at each distance, the team shall repeat trials.                                                                                 | #16           |
-| FR-06 | The evaluation shall report the farthest tested distance that meets the detection criterion under the tested conditions.                     | #16           |
-| FR-07 | The team shall record the prototype's equipment cost, physical size, weight, and setup time.                                                 | #17           |
-| FR-08 | The comparison shall use published information for the selected radar systems.                                                               | #17           |
-| FR-09 | The comparison shall identify unavailable data and differences in capabilities or testing conditions.                                        | #17           |
+| FR-01 | When the classifier is run on held-out test recordings, the evaluation shall report drone-detection accuracy, missed detections, and false detections. | #6            |
+| FR-02 | The evaluation report shall define how each metric is calculated.                                                                                      | #6            |
+| FR-03 | The evaluation shall present results separately for each tested condition so that the effects of human movement and interference are visible.          | #6            |
+| FR-04 | Before testing at multiple distances, the team shall define the distance reference, test arrangement, and criterion for successful detection.          | #16           |
+| FR-05 | When testing at each distance, the team shall repeat trials.                                                                                           | #16           |
+| FR-06 | The evaluation shall report the farthest tested distance that meets the detection criterion under the tested conditions.                               | #16           |
+| FR-07 | The team shall record the prototype's equipment cost, physical size, weight, and setup time.                                                           | #17           |
+| FR-08 | The comparison shall use published information for the selected radar systems.                                                                         | #17           |
+| FR-09 | The comparison shall identify unavailable data and differences in capabilities or testing conditions.                                                  | #17           |
 
 ### 4.1 Requirements Traceability
 
