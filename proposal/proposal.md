@@ -108,9 +108,7 @@ The proposed radar comparison is literature-based rather than a commitment to ob
 ### Goal 4: Maintain clear team organization and documentation [[epic: #55]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/55)
 
 **Objective 4.1: Define and document team roles and leadership designation.**  
-Record each team member's role and the designated team leader in the project README. 
-
-[[issue: #17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/<story>).
+Record each team member's role and the designated team leader in the project README. **[[story: #17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/<story>).**
 
 ## 3. Proposed Approaches
 
