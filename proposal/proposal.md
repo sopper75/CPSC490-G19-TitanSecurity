@@ -108,9 +108,7 @@ The proposed radar comparison is literature-based rather than a commitment to ob
 ### Goal 4: Maintain clear team organization and documentation [[epic: #55]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/55)
 
 **Objective 4.1: Define and document team roles and leadership designation.**  
-Record each team member's role and the designated team leader in the project README. 
-
-[[issue: #17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/<story>).
+Record each team member's role and the designated team leader in the project README. **[[story:#56]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/56).**
 
 ## 3. Proposed Approaches
 
@@ -165,6 +163,8 @@ The editable Mermaid diagrams, detailed descriptions, and data-flow documentatio
 | -------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | specification | Hardware configuration, CSI acquisition, timestamped recording, data quality, and acceptance criteria | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) |
 | [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2                                                 | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) |
+| [Drone Detection Specification](../docs/specs/drone-detection.md) | specification | Drone detection requirements and acceptance criteria | [task:#49](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/49) |
+| [Evaluation Specification](../docs/specs/evaluation.md) | specification | Detection performance and evaluation requirements | [task:#50](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/50) |
 
 | Document | Kind | Covers | Issues |
 |---|---|---|---|
