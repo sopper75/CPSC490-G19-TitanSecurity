@@ -1,13 +1,12 @@
 # Prototype
 
-Proof-of-concept code for 〈project title〉. **Prototype work starts in Sprint 2**
+Proof-of-concept code for Radar Over WiFi (ROW) Detection. **Prototype work starts in Sprint 2**
 (Homework #4 needs no prototype), and it grows every sprint after that; every sprint-review demo from the end of
 Sprint 2 on runs from this folder.
 
-This example implements the login slice behind story
-[#3](../../../issues/3) and task [#5](../../../issues/5) — deliberately tiny,
+This skeleton implements the minimal capture and quality-check stubs behind the current prototype work — deliberately tiny,
 because a prototype exists to answer one risky question, not to be the
-product. **Replace it with yours** and keep the shape: a small module, a test
+product. **Replace the stubs with real CSI code later** and keep the shape: a small module, a test
 per acceptance criterion, and run instructions below that work on a machine
 that has never seen your project.
 
@@ -15,28 +14,7 @@ that has never seen your project.
 
 ```bash
 cd prototype
-python login.py                 # smoke run: prints a truncated session token
-```
-
-## How to test
-
-```bash
-cd prototype
-pip install pytest              # once
-python -m pytest tests -q       # 4 tests
-```
-
-CI runs exactly these tests on every pull request (job **Prototype build &
-tests**). If you use Node instead of Python, put a `package.json` here with a
-`test` script and CI will detect and run that instead.
-
-## What it proves
-
-That credentials can be checked and a session token issued, with unknown-user
-and wrong-password failures indistinguishable to the caller — the riskiest
-assumption in 〈the epic this belongs to〉.
-
-## Status
+python quality_check.py          # smoke run: checks the sample recording stub
 
 | Sprint | Increment |
 |---|---|
