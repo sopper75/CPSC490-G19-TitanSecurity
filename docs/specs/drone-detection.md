@@ -119,25 +119,26 @@ The Wi-Fi CSI Sensing specification states that the complete CSI acquisition met
 
 ### 8.1 Objective 2.1 — Labeled Datasets (#14)
 
-- [ ] Recordings exist for drone activity, empty background, human movement, and interference conditions.
-- [ ] Each recording documents its condition and equipment arrangement.
-- [ ] The amount of data for each condition is documented.
-- [ ] Training and evaluation recordings are separate.
-- [ ] Each recording identifies its data source type.
+- [ ] Recordings include drone activity, empty background, human movement, and documented interference conditions.
+- [ ] Each recording has a condition label, session identifier, and equipment/setup information.
+- [ ] The inventory reports the number and duration of recordings for each condition.
+- [ ] Entire recording sessions are assigned to separate training and evaluation sets, with no session shared between them.
+- [ ] A teammate can follow the documentation to load recordings and identify
 
 ### 8.2 Objective 2.2 — Classifier (#15)
 
-- [ ] A classifier is trained using the labeled training recordings.
-- [ ] The classifier is evaluated on recordings excluded from training.
-- [ ] Predictions are reported for all four conditions.
-- [ ] Another team member can reproduce the reported predictions.
+- [ ] The classifier is trained using the labeled CSI training recordings from #14.
+- [ ] Evaluation uses recording sessions excluded from training and model selection.
+- [ ] Results report correct detections, missed drones, and false detections, separately for the tested conditions.
+- [ ] Training and evaluation instructions document the data split, configuration, and commands needed to reproduce the results.
 
 ### 8.3 Objective 2.3 — Position and Movement (#7)
 
-- [ ] Position and movement estimates are produced in a controlled test area.
-- [ ] Estimates are compared with recorded reference positions and movements.
-- [ ] Position error and movement consistency are reported.
-- [ ] Conditions where estimation fails are reported.
+- [ ] The test procedure defines the reference positions, movements, and how they are measured.
+- [ ] The implementation produces position and movement estimates from CSI recordings.
+- [ ] Position estimates are compared with reference measurements, and position errors are reported.
+- [ ] Movement estimates are compared with recorded reference movements, and the evaluation method and results are documented.
+- [ ] Instructions describe how to reproduce the evaluation, including failed cases and limitations.
 
 ### 8.4 Specification Task
 
