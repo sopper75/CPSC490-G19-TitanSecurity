@@ -113,6 +113,9 @@ Record each team member's role and the designated team leader in the project REA
 **Objective 4.2: Define different approaches considered and choosen approach.**
 Define the approaches considered for achieving the stated goals, listing possible strategies and reasoning that decided between them. **[[story:#67]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/67).**
 
+**Objective 4.3: Complete Sprint 2 Review.**  
+Complete the Sprint 2 review in `docs/sprint-reviews/sprint-2.md`, recording progress, velocity, carry-overs, and member contributions for Sprint 2. **[[story:#69]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/69).**
+
 ## 3. Proposed Approaches
 
 Our approach consists of mounting Wifi antennas to tripods, connected to a mini microcontroller detecting CSI packets, and sending the packets received to two computers. These two computers jobs are to filter the packets for any traffic that is not needed. The computers will then send the filtered packets to a main processing computer, which then processes the CSI packets to detect for drone movement & detection.
