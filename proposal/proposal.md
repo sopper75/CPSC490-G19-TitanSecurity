@@ -110,20 +110,16 @@ The proposed radar comparison is literature-based rather than a commitment to ob
 **Objective 4.1: Define and document team roles and leadership designation.**  
 Record each team member's role and the designated team leader in the project README. **[[story:#56]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/56).**
 
+**Objective 4.2: Define different approaches considered and choosen approach.**
+Define the approaches considered for achieving the stated goals, listing possible strategies and reasoning that decided between them. **[[story:#67]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/67).**
+
 ## 3. Proposed Approaches
 
-> Describe your proposed approach to solve the problem, specifying how you
-> will achieve the stated goals. List some possible strategies.
+Our approach consists of mounting Wifi antennas to tripods, connected to a mini microcontroller detecting CSI packets, and sending the packets received to two computers. These two computers jobs are to filter the packets for any traffic that is not needed. The computers will then send the filtered packets to a main processing computer, which then processes the CSI packets to detect for drone movement & detection.
 
-〈Your approach — **clear and concise**. State the strategy you chose, the
-alternatives you considered, and the reasoning that decided between them.
-Think of this as the argument, not the manual: a reader should finish this
-section understanding *what* you will do and *why that* rather than the
-alternatives.〉
+We considered two alternatives. One was to have only computer filter the CSI packets to be sent for processing. This streamlines the process, and makes the test setup easier to configure. But this creates a single bottleneck, meaning if the packet rate increases, or all the antennas start sending traffic, could slow down the filtering or worse, shut down the pipeline if the computer is overwhelmed. Another was to use standard Wifi adapters to intercept traffic instead of the microcontrollers. These are more familar and more widely available, but usually it's signifcantly harder to capture CSI packets without specailized hardware, making it harder to configure the setup.
 
-**Keep the details out of this section.** Tooling, platforms, frameworks, DBMS choices, environment setup, diagrams, and the work breakdown all belong in §4 (Required Environment, Resources, and Planned Activities). If a sentence here names a version number, a library, or a configuration, it probably belongs in §4 — leave a pointer instead ("the implementation stack is detailed in §4").
-
-〈A few paragraphs, or a short list of candidate strategies with one line of trade-off each. If it runs past a page, you are writing §4.〉
+We chose two filtering computers feeding one processing computer, using the microcontroller modules, because this keeps each stage's workload manageable and gives us direct access to CSI. Exact implementation is described in §4.
 
 ## 4. Required Environment, Resources, and Planned Activities
 
