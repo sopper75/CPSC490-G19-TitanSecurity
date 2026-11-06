@@ -116,6 +116,9 @@ Define the approaches considered for achieving the stated goals, listing possibl
 **Objective 4.3: Complete Sprint 2 Review.**  
 Complete the Sprint 2 review in `docs/sprint-reviews/sprint-2.md`, recording progress, velocity, carry-overs, and member contributions for Sprint 2. **[[story:#69]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/69).**
 
+**Objective 4.4: Release the end-of-Sprint-2 build to main.**  
+Merge the reviewed Sprint 2 work from develop into main through a release branch and tag it v0.2, so main holds the work submitted for the sprint. **[[story:#73]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/73).**
+
 ## 3. Proposed Approaches
 
 Our approach consists of mounting Wifi antennas to tripods, connected to a mini microcontroller detecting CSI packets, and sending the packets received to two computers. These two computers jobs are to filter the packets for any traffic that is not needed. The computers will then send the filtered packets to a main processing computer, which then processes the CSI packets to detect for drone movement & detection.
