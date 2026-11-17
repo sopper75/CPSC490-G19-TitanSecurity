@@ -165,8 +165,8 @@ The editable Mermaid diagrams, detailed descriptions, and data-flow documentatio
 | -------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | specification | Hardware configuration, CSI acquisition, timestamped recording, data quality, and acceptance criteria | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) |
 | [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2                                                 | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) |
-| [Drone Detection Specification](../docs/specs/drone-detection.md) | specification | Drone detection requirements and acceptance criteria | [task:#49](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/49) |
-| [Evaluation Specification](../docs/specs/evaluation.md) | specification | Detection performance and evaluation requirements | [task:#50](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/50) |
+| [Drone Detection Specification](../docs/specs/drone-detection.md) | specification | Labeled datasets, classifier, and position and movement requirements; Objectives 2.1–2.3 | [task:#49](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/49)
+| [Evaluation Specification](../docs/specs/evaluation.md) | specification | Detection metrics, effective range, and radar comparison requirements; Objectives 3.1–3.3 | [task:#50](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/50)
 
 | Document | Kind | Covers | Issues |
 |---|---|---|---|
@@ -174,6 +174,11 @@ The editable Mermaid diagrams, detailed descriptions, and data-flow documentatio
 | 〈docs/design/architecture.md〉 | design | 〈system architecture + data model〉 | 〈#n〉 |
 
 The CSI Data Flow Design documents the proposed sensing subsystem through Level 0 and Level 1 diagrams. It identifies external inputs, measurement capture, timestamping, raw recording storage, validation, and the intended downstream detection pipeline. Its editable Mermaid source and exported images are maintained in `docs/design/`.
+
+The Drone Detection Specification defines the requirements for Epic #3 and Objectives 2.1 to 2.3. It covers labeled CSI datasets for four conditions, a drone presence classifier evaluated only on recordings excluded from training, and position and movement estimation in a controlled test area. It states that results describe only the conditions actually tested and that substitute targets are never presented as evidence of actual drone detection.
+
+The Evaluation Specification defines the requirements for Epic #4 and Objectives 3.1 to 3.3. It covers how detection metrics are calculated and reported, how effective range is measured, and how the prototype is compared with published radar information. It states that surrogate data is never presented as evidence of actual drone detection.
+
 
 The specification was merged through [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46). The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
@@ -183,17 +188,14 @@ The specification was merged through [PR #46](https://github.com/sopper75/CPSC49
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
-| Issue | Type | Activity | Parent | Owner | Sprint |
-|---|---|---|---|---|---|
-| [[task:#11]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11) | task | Update proposal sections 0–2 | Standalone | 23jdo5 | Sprint 1 |
-| [[task:#20]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20) | task | Clean up proposal header and §2 issue links | Standalone | sopper75 | Sprint 1 |
-| [[task:#23]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/23) | task | Update course files to CPSC 490 c155339 | Standalone | sopper75 | Sprint 1 |
-| [[task:#26]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/26) | task | Revise §0–§1 from HW#4 feedback | Standalone | sopper75 | Sprint 1 |
-| [[task:#27]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/27) | task | Write §1.1 Related Work (comparative table) | Standalone | Zwach | Sprint 1 |
-| [[task:#28]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/28) | task | Write §1.2 Problem Statements P1..Pn | Standalone | Zwach | Sprint 1 |
-| [[task:#29]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/29) | task | Write §2 Goals and Objectives | Standalone | 23jdo5 | Sprint 1 |
-| [[task:#34]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/34) | task | Add #23 and #26-#29 to §4 | Standalone | dappurs | Sprint 1 |
-
+| Issue                                                                       | Type | Activity                                          | Parent     | Owner    | Sprint   |
+| --------------------------------------------------------------------------- | ---- | ------------------------------------------------- | ---------- | -------- | -------- |
+| [#11](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/11)      | task | Update proposal sections 0–2                      | Standalone | 23jdo5   | Sprint 1 |
+| [#20](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/20)      | task | Clean up proposal header and §2 issue links       | Standalone | sopper75 | Sprint 1 |
+| [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) | task | Write Wi-Fi CSI sensing specification             | #8         | 23jdo5   | Sprint 2 |
+| [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) | task | Create Level 0 and Level 1 CSI data-flow diagrams | #8         | 23jdo5   | Sprint 2 |
+| [task:#49](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/49) | task | Write Drone Detection specification (epic #3) | #3 | dappurs | Sprint 2 |
+| [task:#50](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/50) | task | Write Evaluation specifications (epic #4) | #4 | dappurs | Sprint 2 |
 
 ## 5. Project Outcomes
 
