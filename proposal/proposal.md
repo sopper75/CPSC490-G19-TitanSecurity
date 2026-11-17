@@ -129,11 +129,13 @@ We chose two filtering computers feeding one processing computer, using the micr
 
 ## 4. Required Environment, Resources, and Planned Activities
 
-> Review the required and available resources and environment to complete your project. For example, server, platform, software tools, operating systems, DBMS, or any required skills.
->
-> Describe the expected activities to achieve the stated goals, e.g., software development process.
+### Environment and resources
 
-〈The team must complete the remaining environment, resources, and planned activities description, including the proposed hardware and software stack and how each component will be used.〉
+For the November indoor trial, we placed four Seeed Studio XIAO ESP32-S3 receivers with external antennas on tripods around the test area. Each board sent pings to a GL.iNet GL-MT3000 router over 2.4 GHz Wi-Fi and recorded channel state information (CSI) from incoming Wi-Fi frames. CSI describes how the signal reaches a receiver at different frequencies. We used a movable metal reflector to compare the readings during stillness, walking, reflector movement, and walking with the reflector.
+
+Two MacBooks each recorded data from two receivers through a USB hub. Each MacBook saved the raw readings locally so we could reanalyze the trial afterward. It also sent a summary over an Ethernet switch to a third MacBook, which displayed one live graph per receiver. The switch connected the three computers. The router provided the wireless link to the receivers and was separate from that wired network.
+
+We built the receiver firmware in C with ESP-IDF 6.0.3 using Espressif’s ESP-CSI router example. We first tested a single receiver on Windows 11 before running the four-receiver setup on macOS. On the recording laptops, Python and pyserial read the USB data. For offline analysis, we used NumPy to calculate how much the signal amplitude varied and Matplotlib to plot those changes over time. The November graphs used these calculations directly; machine learning remains a later stage of the project. [task:#86](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/86)
 
 **Design diagrams:** This section includes the Wi-Fi CSI sensing data-flow diagrams. The team must also supply a high-level architecture diagram and a system/context diagram, along with other appropriate design views, and keep authoritative copies in `docs/design/`.
 
