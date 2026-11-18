@@ -195,18 +195,17 @@ The goals and objectives are listed in §2 as epics and user stories. The follow
 | [[task:#28]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/28) | task | Write §1.2 Problem Statements P1..Pn | Standalone | Zwach | Sprint 1 |
 | [[task:#29]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/29) | task | Write §2 Goals and Objectives | Standalone | 23jdo5 | Sprint 1 |
 | [[task:#34]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/34) | task | Add #23 and #26-#29 to §4 | Standalone | dappurs | Sprint 1 |
-| [[task:#51]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/51) | task | Add Drone Detection (#49) and Evaluation (#50) specifications to proposal §4 | Standalone | 〈owner〉 | Sprint 2 |
-| [[story:#13]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/13) | user-story | Objective 1.2: Save CSI measurements to timestamped files and verify their data quality | Epic #2 | 〈owner〉 | Sprint 3 |
-| [[story:#14]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/14) | user-story | Objective 2.1: Collect labeled CSI datasets for drone activity, empty background, human movement, and interference conditions | Epic #3 | 〈owner〉 | Sprint 3 |
-| [[story:#15]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/15) | user-story | Objective 2.2: Train and evaluate a classifier that distinguishes drone presence from non-drone conditions | Epic #3 | 〈owner〉 | Sprint 3 |
-| [[story:#7]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/7) | user-story | Objective 2.3: Implement and evaluate estimates of drone position and movement in a controlled test area | Epic #3 | 〈owner〉 | Sprint 3 |
-| [[task:#86]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/86) | task | Write the hardware and software setup in proposal §4 (merged in [PR #87](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/87)) | Standalone | 〈owner〉 | Sprint 3 |
-| [[task:#88]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/88) | task | Write the classifier training and evaluation plan (merged in [PR #89](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/89)) | Objective 2.2 | 〈owner〉 | Sprint 3 |
-| [[pr:#90]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/90) | pull request | Add evaluation report for Objective 3.1 | Objective 3.1 | 〈owner〉 | Sprint 3 |
-| 〈[[task:#77]] to [[task:#84]]〉 | 〈type〉 | 〈titles from the board, one row each〉 | 〈parent〉 | 〈owner〉 | 〈sprint〉 |
-| [[story:#6]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/6) | user-story | Objective 3.1: Measure drone-detection accuracy, missed detections, and false detections on held-out test recordings | Epic #4 | 〈owner〉 | Sprint 4 |
-| [[story:#16]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/16) | user-story | Objective 3.2: Measure drone-detection performance at multiple distances to determine the effective detection range | Epic #4 | 〈owner〉 | Sprint 4 |
-| [[story:#17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/17) | user-story | Objective 3.3: Compare prototype cost, portability, and setup effort with selected conventional radar systems using documented evidence | Epic #4 | 〈owner〉 | Sprint 4 |
+| [[task:#51]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/51) | task | Add Drone Detection (#49) and Evaluation (#50) specifications to proposal §4 | Standalone | dappurs | Sprint 2 |
+| [[story:#13]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/13) | user-story | Objective 1.2: Save CSI measurements to timestamped files and verify their data quality | Epic #2 | sopper75 | Sprint 3 |
+| [[story:#14]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/14) | user-story | Objective 2.1: Collect labeled CSI datasets for drone activity, empty background, human movement, and interference conditions | Epic #3 | Badtzi | Sprint 3 |
+| [[story:#15]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/15) | user-story | Objective 2.2: Train and evaluate a classifier that distinguishes drone presence from non-drone conditions | Epic #3 | 23jdo5 | Sprint 3 |
+| [[story:#7]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/7) | user-story | Objective 2.3: Implement and evaluate estimates of drone position and movement in a controlled test area | Epic #3 | dappurs | Sprint 3 |
+| [[task:#86]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/86) | task | Write the hardware and software setup in proposal §4 (merged in [PR #87](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/87)) | Standalone | 23jdo5 | Sprint 3 |
+| [[task:#88]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/88) | task | Write the classifier training and evaluation plan (merged in [PR #89](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/89)) | Objective 2.2 | 23jdo5 | Sprint 3 |
+| [[pr:#90]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/90) | pull request | Add evaluation report for Objective 3.1 | Objective 3.1 | Badtzi | Sprint 3 |
+| [[story:#6]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/6) | user-story | Objective 3.1: Measure drone-detection accuracy, missed detections, and false detections on held-out test recordings | Epic #4 | dappurs | Sprint 4 |
+| [[story:#16]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/16) | user-story | Objective 3.2: Measure drone-detection performance at multiple distances to determine the effective detection range | Epic #4 | Zachary-Headley | Sprint 4 |
+| [[story:#17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/17) | user-story | Objective 3.3: Compare prototype cost, portability, and setup effort with selected conventional radar systems using documented evidence | Epic #4 | 23jdo5 | Sprint 4 |
 
 ### Remaining work
 
