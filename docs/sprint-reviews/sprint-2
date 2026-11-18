@@ -1,0 +1,130 @@
+# Sprint 2 review — Oct 22 – Nov 4, 2026
+
+> One file per sprint, written at the sprint boundary (the setup guide's
+> *The four sprints* section). This file, the board, and the merged PRs are
+> what the sprint's **5%** (of the syllabus's 20% *Prototype & repository
+> practice*) is assessed on — as they stand at the boundary.
+> This is what makes **Transparency** and carry-over decisions visible at
+> grading time — don't reconstruct it later.
+
+Note: this review was written Nov 5, one day after the sprint boundary. Items
+that landed after Nov 4 are marked "after boundary" and not counted as Sprint 2.
+
+## Progress this sprint — the substance
+
+**Proposal moved:**
+
+| Section | What changed | Where |
+|---|---|---|
+| docs/specs/wifi-csi-sensing.md | New Wi-Fi CSI sensing specification (349 lines) for epic #2 | #45, PR #46 |
+| docs/specs/drone-detection.md | New drone detection specification (186 lines) for epic #3 | #49, PR #59 |
+| docs/specs/evaluation.md | New evaluation specification (219 lines) for epic #4 | #50, PR #61 |
+| docs/design/csi-data-flow.md | CSI data flow design with Level 0 and Level 1 DFDs | #47, PR #48 |
+| docs/design/diagrams | High-level architecture, system context, capture-to-detection sequence diagram | #65, PR #66 (merged after boundary) |
+| §2 Goals and Objectives | Goal 4 (team organization and documentation) and Objective 4.1 added, links cleaned up | #55, #56, PRs #57, #58, #62 |
+| §2 / §3 | Objective 4.2 (approaches considered and chosen) and section 3 update | #67, PR #68 (after boundary) |
+| README | Team roster, roles and leadership designation resolved | #53, PRs #42, #54 |
+
+Not done: adding the drone detection and evaluation specs to proposal §4
+(#51). PR #60 was closed unmerged.
+
+**Prototype moved:** thin, and we say so plainly. The prototype is a
+skeleton plus procedures, not working CSI code. `prototype/` gained
+`capture.py` (5-line stub), `quality_check.py` (stub), `sample_recording.txt`
+(placeholder), `.env.example`, `csi-setup.md` (equipment setup) and
+`csi-capture.md` (capture procedure). Demonstration:
+`cd prototype && python quality_check.py` prints `Quality check stub: OK`.
+TODO: if any real CSI frames were captured on the hardware, add what was
+captured and how it was checked. If not, keep this paragraph as is.
+
+## Velocity
+
+Points use the `sp:` labels on issues in the Sprint 2 milestone. TODO: confirm
+with `python scripts/sprint_report.py` before committing.
+
+| | Story points | Stories |
+|---|---|---|
+| Planned | TODO (milestone snapshot at Oct 22) | TODO |
+| Completed | 8 | 5 (#45, #47, #49, #50, #56 with task #53) |
+
+Completed counts work finished by Nov 4. A further 6 points (3 items: #8, #65,
+#67) closed after the boundary and are not counted above.
+
+## Completed (merged PRs)
+
+| Story | Owner | Points | PR |
+|---|---|---|---|
+| #45 Write Wi-Fi CSI Sensing Specification | @23jdo5 | 2 | #46 |
+| #47 Create CSI Data Flow Diagram | @23jdo5 | 1 | #48 |
+| #49 Write drone detection specification | @dappurs | 2 | #59 |
+| #50 Write Evaluation specifications | @dappurs | 2 | #61 |
+| #56 Objective 4.1: team roles and leadership (task #53) | @sopper75 | 1 | #54, #57, #58, #62 |
+| #8 Objective 1.1: CSI transmitter/receiver setup and capture (after boundary) | @Badtzi | 3 | #41, #64 |
+| #65 Architecture, system context, sequence diagrams (after boundary) | @dappurs | 2 | #66 |
+| #67 Objective 4.2: approaches considered (after boundary) | @Zachary-Headley | 1 | #68 |
+
+Sprint 1 carry-overs finished in this sprint, credited once here and not
+re-counted: #37 (README team update, PR #42) and #43 (merge develop into
+main, PR #44).
+
+## Carried over — and why
+
+| Story | Owner | Why not finished | Decision |
+|---|---|---|---|
+| #51 Add specs to proposal §4 | @dappurs | PR #60 was closed unmerged; the work was folded into other PRs and never completed | TODO: move to Sprint 3 milestone |
+| #8 Objective 1.1 | @Badtzi | Closing PRs (#41, #64) merged during the sprint but the issue stayed open until Nov 5; #41 and #64 also have mislinked or loose `Closes` lines | Closed Nov 5; counted as after boundary |
+| #2 epic Wi-Fi CSI sensing | @Zachary-Headley | Epic stays open until its child stories finish; stories #13 and #14 are planned for Sprint 3 | Stays open, no action |
+
+## Loop health (docs/aidlc/loop-engineering.md §8)
+
+| | This sprint |
+|---|---|
+| Iterations to green, average per PR | TODO (count CI runs per merged PR in the Actions tab) |
+| Harness rules added (rows in the harness log) | 0 (no team rows added in `docs/aidlc/harness-log.md` this sprint) |
+
+TODO: one line on spec-writing. Evidence to work from: #59 needed several
+follow-up formatting and link commits, and #62 fixed proposal links after the
+fact, so link and format errors were still being found at review rather than
+before it.
+
+## Prototype increment
+
+Start of sprint: course example only (`login.py` plus 4 tests). End of sprint:
+CSI-specific skeleton (`capture.py`, `quality_check.py`, sample recording
+placeholder, `.env.example`) and written setup and capture procedures. It
+cannot capture or analyze CSI yet. Demonstrated by running
+`python quality_check.py` in `prototype/`. Note: the increment table in
+`prototype/README.md` still shows the course example for Sprint 2 and should
+be updated to match.
+
+## Feedback we received, and what we did about it
+
+| Feedback (source) | What we changed | Issue / PR |
+|---|---|---|
+| TODO: Sprint 1 review meeting feedback from instructor | TODO | TODO |
+| Instructor: Sprint 2 evaluation (received after the boundary) | Findings feed the changes below | n/a |
+
+## Contribution snapshot
+
+Counts are PRs merged and reviews given during Oct 22 to Nov 4, taken from the
+PR history. TODO: fill meetings attended and verify the other counts.
+
+| Member | Meetings attended | Merged PRs | Issues closed | Reviews given |
+|---|---|---|---|---|
+| @sopper75 | TODO | 6 (#36, #44, #54, #57, #58, #62) | TODO (verify on the board) | 3 (#42, #46, #48) |
+| @23jdo5 | TODO | 2 (#46, #48) | 2 (#45, #47) | 8+ |
+| @Zachary-Headley | TODO | 0 (#68 merged after boundary) | 0 (#67 after boundary) | 2 (#59, #61) |
+| @dappurs | TODO | 2 (#59, #61) | 2 (#49, #50) | 0 |
+| @Badtzi | TODO | 4 (#40, #41, #42, #64) | 1 (#39) | 2 (#62, #66) |
+
+Zachary authored no work inside the sprint window; his first PR (#68) landed
+after the boundary. TODO: say what the team is doing about it (for example,
+a Sprint 3 story assigned at planning). Alex reviewed no teammate PRs.
+
+## What we change next sprint
+
+- Move cards through In Progress and In Review as work happens, not in bulk at the end.
+- Create issues and epics before the work starts, not the day before the deadline.
+- Check every PR's `Closes #n` points at its own issue before merging.
+- Write this review at the boundary and annotate carry-overs (#51) in it.
+- Every member lands at least one PR of their own, and everyone reviews at least one teammate PR.

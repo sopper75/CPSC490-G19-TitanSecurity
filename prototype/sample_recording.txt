@@ -1,0 +1,4 @@
+# Placeholder sample recording
+# Real CSI data will replace this later
+timestamp,amplitude
+0.0,0.0

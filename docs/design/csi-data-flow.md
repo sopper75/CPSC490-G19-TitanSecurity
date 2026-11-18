@@ -86,3 +86,115 @@ flowchart TD
 Figure 2 shows the proposed internal data flow of the CSI sensing system. Measurements will be captured through compatible receiver hardware, associated with timestamps and experiment information, and stored in raw recording files. The data-quality process will then produce validated records and quality reports.
 
 All numbered processes and data stores represent planned functionality. The final CSI-compatible receiver and capture method are still to be confirmed.
+
+## 4. High-Level Architecture
+
+Figure 3 shows the major parts of the planned sensing system and how data moves through them. It is grouped by function: test environment, acquisition, processing, and analysis.
+
+```mermaid
+flowchart LR
+    OP["Experiment operator"]
+
+    subgraph Env["Test environment"]
+        DRONE(["Drone (target)"])
+        PPL["People and objects"]
+        ANT["Receive antennas (5)"]
+    end
+
+    subgraph Acq["Acquisition"]
+        RT["Wi-Fi transmitter<br/>(router)"]
+        RX["Receivers"]
+        C12["Capture computers 1 and 2"]
+        SW["Switch"]
+        C3["Capture computer 3"]
+    end
+
+    subgraph Proc["Processing"]
+        FILT["Traffic filter"]
+        REC[("Timestamped recordings")]
+        VAL["Validator"]
+        DS[("Validated dataset<br/>and quality reports")]
+    end
+
+    subgraph Ana["Analysis (planned)"]
+        CLF["Drone detection pipeline"]
+        EVAL["Evaluation"]
+    end
+
+    OP --> C12
+    RT --> ANT
+    DRONE -.-> ANT
+    PPL -.-> ANT
+    ANT --> RX --> C12 --> SW --> RT
+    RT --> C3 --> FILT
+    SW --> FILT --> REC --> VAL --> DS
+    VAL -.-> OP
+    DS -.-> CLF -.-> EVAL
+```
+![High-level architecture of the planned Wi-Fi CSI sensing system](diagrams/high-level-architecture.png)
+
+**Figure 3 — High-level architecture of the planned Wi-Fi CSI sensing system.**
+
+Figure 3 shows that the router transmits Wi-Fi signals through the test area. A drone, people, or objects alter the channel. The receivers pass measurements to the capture computers, which send captured traffic to the switch. The traffic filter removes baseline traffic and traffic not from the test devices, and the validator checks recordings before they enter the dataset.
+
+## 5. System Context
+
+Figure 4 shows the Wi-Fi CSI sensing system as a single box, with everything outside its boundary around it. It answers one question: where does the system stop, and what crosses its boundary? The internal parts are shown in Figure 3.
+
+**Figure 4 — System context.**
+
+```mermaid
+flowchart LR
+    OP["Experiment operator"]
+    TX["Wi-Fi transmitter (router)"]
+    ENV["Test environment<br/>drone, people, objects"]
+    SYS["Wi-Fi CSI sensing system"]
+    DET["Drone detection pipeline"]
+
+    OP -->|"session settings"| SYS
+    SYS -->|"recordings and quality reports"| OP
+    TX -->|"Wi-Fi signals"| ENV
+    ENV -->|"disturbed signals"| SYS
+    SYS -.->|"validated recordings"| DET
+```
+![System context of the Wi-Fi CSI sensing system](diagrams/system-context.png)
+
+**Figure 4 — System context.**
+
+The experiment operator configures each session and receives the recordings and quality reports. The Wi-Fi transmitter sends signals through the test environment, where a drone, people, or objects disturb the channel before the system receives them. The drone detection pipeline will consume validated recordings.
+
+## 6. Capture-to-Detection Sequence
+
+Figure 5 shows the order of steps for one recording session, from configuring the transmitter to a drone-presence prediction. The first eight steps are built or specified in this epic (#2). The last two steps belong to the drone detection pipeline (Epic #3) and are not yet built.
+
+```mermaid
+sequenceDiagram
+    participant OP as Experiment operator
+    participant TX as Wi-Fi transmitter (router)
+    participant TE as Test environment
+    participant RX as Receivers
+    participant CAP as Capture computers
+    participant FILT as Traffic filter
+    participant REC as Timestamped recordings
+    participant VAL as Validator
+    participant DET as Drone detection pipeline
+
+    OP->>TX: Configure network, channel, and bandwidth
+    OP->>CAP: Start session with condition and equipment arrangement
+    TX->>TE: Wi-Fi signals
+    Note over TE: Drone, people, or objects disturb the channel
+    TE->>RX: Disturbed signals
+    RX->>CAP: Frames and CSI
+    CAP->>FILT: Captured traffic
+    FILT->>REC: Filtered frames with timestamps and session ID
+    OP->>VAL: Request validation of the recording
+    VAL->>REC: Read recording
+    VAL-->>OP: Accepted and rejected counts, with error details
+    VAL->>DET: Accepted labeled recording
+    DET-->>OP: Drone presence prediction
+```
+![Capture-to-detection sequence diagram](diagrams/sequence-diagram.png)
+
+**Figure 5 — Capture-to-detection sequence.**
+
+The operator configures the transmitter and starts a session on the capture computers. Signals from the transmitter pass through the test environment, where a drone, people, or objects disturb the channel. The receivers pass frames and CSI to the capture computers, which send the captured traffic through the traffic filter. The filter removes baseline traffic and traffic not from the test devices, and the filtered frames are written as timestamped recordings. The operator then requests validation, and the validator returns accepted and rejected counts. Accepted recordings go to the drone detection pipeline.
