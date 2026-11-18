@@ -115,6 +115,16 @@ The Wi-Fi CSI Sensing specification states that the complete CSI acquisition met
 | Human movement   | A person moving through the test area                      |
 | Interference     | Other wireless activity present during recording           |
 
+### 7.1 Classifier Training and Evaluation Plan
+
+Once the labeled CSI recordings from #14 are available, the team will use each session’s recorded condition as the reference for evaluating #15. The conditions are drone present, empty background, human movement, and wireless interference. Reflector trials will keep a separate label. Only sessions with a confirmed drone flight will count as evidence of drone presence.
+
+Before training, the team will assign each whole session to one of three groups. The training group will be used to fit the classifier. The validation group will be used to choose the model and its settings. The final test group will be set aside until those choices are complete. All receiver files and time segments from the same session will stay in the same group because they describe the same event.
+
+For the final test, the team will compare each prediction with the recorded condition. A drone-present prediction during a confirmed flight counts as a correct detection. A drone-absent prediction during a confirmed flight counts as a miss. A drone-present prediction during a no-drone condition counts as a false alert. The report will give counts and totals for each condition separately so a teammate can see, for example, how often human movement triggered a false alert.
+
+To make the evaluation reproducible, the team will save the session IDs and their group assignments, the model settings, the unit used for each prediction, and the exact training and evaluation commands. A teammate will use those records to reproduce the results.
+
 ## 8. Acceptance Criteria
 
 ### 8.1 Objective 2.1 — Labeled Datasets (#14)
