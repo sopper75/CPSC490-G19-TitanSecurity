@@ -129,7 +129,7 @@ We chose two filtering computers feeding one processing computer, using the micr
 
 ## 4. Required Environment, Resources, and Planned Activities
 
-### Environment and resources
+### 4.1 Environment and resources
 
 For the November indoor trial, we placed four Seeed Studio XIAO ESP32-S3 receivers with external antennas on tripods around the test area. Each board sent pings to a GL.iNet GL-MT3000 router over 2.4 GHz Wi-Fi and recorded channel state information (CSI) from incoming Wi-Fi frames. CSI describes how the signal reaches a receiver at different frequencies. We used a movable metal reflector to compare the readings during stillness, walking, reflector movement, and walking with the reflector.
 
@@ -139,7 +139,7 @@ We built the receiver firmware in C with ESP-IDF 6.0.3 using Espressif’s ESP-C
 
 **Design diagrams:** This section includes the Wi-Fi CSI sensing data-flow diagrams. The team must also supply a high-level architecture diagram and a system/context diagram, along with other appropriate design views, and keep authoritative copies in `docs/design/`.
 
-### Wi-Fi CSI Sensing — Data Flow Design
+### 4.2 Wi-Fi CSI Sensing — Data Flow Design
 
 The proposed Wi-Fi sensing system will collect wireless channel measurements and prepare them for later drone-detection analysis. The data-flow design supports Objective 1.1 (CSI acquisition, issue #8) and Objective 1.2 (timestamped recording and data quality, issue #13).
 
@@ -159,14 +159,14 @@ Both diagrams describe the planned design rather than completed functionality. F
 
 The editable Mermaid diagrams, detailed descriptions, and data-flow documentation are maintained in [CSI Data Flow Design](../docs/design/csi-data-flow.md), tracked under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
-### Specification and design documents
+### 4.3 Specification and design documents
 
 **Every specification and design document the team writes must be listed here** with the objective it serves. This section acts as the index of the project's technical detail. CI gate G9 checks for links to these documents.
 
 | Document                                                             | Kind          | Covers                                                                                                | Issues                                                                      |
 | -------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [Wi-Fi CSI Sensing Specification](../docs/specs/wifi-csi-sensing.md) | specification | Hardware configuration, CSI acquisition, timestamped recording, data quality, and acceptance criteria | [task:#45](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/45) |
-| [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2                                                 | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) |
+| [CSI Data Flow Design](../docs/design/csi-data-flow.md)              | design        | Level 0 and Level 1 CSI data flow; Objectives 1.1–1.2, high level architecture, sequence diagram, system context diagram | [task:#47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) and [task:#65](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/65)|
 | [Drone Detection Specification](../docs/specs/drone-detection.md) | specification | Drone detection requirements and acceptance criteria | [task:#49](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/49) |
 | [Evaluation Specification](../docs/specs/evaluation.md) | specification | Detection performance and evaluation requirements | [task:#50](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/50) |
 
@@ -175,13 +175,13 @@ The editable Mermaid diagrams, detailed descriptions, and data-flow documentatio
 | 〈docs/specs/account-management.md〉 | specification | 〈account management requirements〉 | 〈#n, #n〉 |
 | 〈docs/design/architecture.md〉 | design | 〈system architecture + data model〉 | 〈#n〉 |
 
-The CSI Data Flow Design documents the proposed sensing subsystem through Level 0 and Level 1 diagrams. It identifies external inputs, measurement capture, timestamping, raw recording storage, validation, and the intended downstream detection pipeline. Its editable Mermaid source and exported images are maintained in `docs/design/`.
+The CSI Data Flow Design documents the proposed sensing subsystem through Level 0 and Level 1 diagrams. It identifies external inputs, measurement capture, timestamping, raw recording storage, validation, and the intended downstream detection pipeline. It also contains a high level architecture diagram showing how all parts of the system is connected, sequence diagram showing the structural view, and context diagram showing the workflow. Its editable Mermaid source and exported images are maintained in `docs/design/`.
 
-The specification was merged through [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46). The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
+The specification was merged through for Wi_Fi Sensing Specification [PR #46](https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/46), Drone Detection Specification [PR#59] https://github.com/sopper75/CPSC490-G19-TitanSecurity/pull/59. and Evaluation Specification [PR#61]. The design document was developed under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47) and [issue:#65](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/65)
 
 **Remaining documentation:** The team must add other specifications and design documents to this index as they are completed. The repository's worked examples, `docs/specs/example-spec.md` and `docs/design/example-design.md`, should be handled according to the course repository instructions.
 
-### Planned activities — the work items
+### 4.4 Planned activities — the work items
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
@@ -208,7 +208,7 @@ The goals and objectives are listed in §2 as epics and user stories. The follow
 | [[story:#16]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/16) | user-story | Objective 3.2: Measure drone-detection performance at multiple distances to determine the effective detection range | Epic #4 | Zachary-Headley | Sprint 4 |
 | [[story:#17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/17) | user-story | Objective 3.3: Compare prototype cost, portability, and setup effort with selected conventional radar systems using documented evidence | Epic #4 | 23jdo5 | Sprint 4 |
 
-### Remaining work
+### 4.5 Remaining work
 
 Sprint 3 builds the data and modeling foundation. Titan Security plans to finish the recording process so CSI measurements are saved to timestamped files and checked for missing or malformed records (Objective 1.2), then use it to collect labeled datasets for drone activity, empty background, human movement, and interference conditions (Objective 2.1). A classifier that separates drone presence from non-drone conditions will be trained and evaluated on recordings held out from training (Objective 2.2). Position and movement estimates will be implemented and compared against recorded reference positions in a controlled test area (Objective 2.3). The hardware and software setup description, the classifier training and evaluation plan, and an evaluation report for Objective 3.1 are merged. The Drone Detection and Evaluation specification text for §4 carries over from Sprint 2.
 
