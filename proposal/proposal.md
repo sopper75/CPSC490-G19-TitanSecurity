@@ -159,6 +159,24 @@ Both diagrams describe the planned design rather than completed functionality. F
 
 The editable Mermaid diagrams, detailed descriptions, and data-flow documentation are maintained in [CSI Data Flow Design](../docs/design/csi-data-flow.md), tracked under [issue #47](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/47).
 
+![High-Level Architecture Diagram](../docs/design/diagrams/high-level-architecture.png)
+
+**Figure 3 - High-level Architecture Diagram.**
+
+Figure 3 provides an overview of the overall Titan Security system and illustrates how its major components work together. The architecture shows how Wi-Fi signals are transmitted through the test environment and collected by multiple ESP32-S3 receivers. The collected CSI measurements are transferred to recording computers, where the data can be stored, processed, and analyzed. The diagram also illustrates how the sensing platform supports the planned drone-detection and evaluation components. This architecture provides a general view of how the individual hardware and software components contribute to the project's overall goal of investigating Wi-Fi-based drone detection.
+
+![System Context](../docs/design/diagrams/system-context.png)
+
+**Figure 4 - System Context Diagram.**
+
+Figure 4 illustrates Titan Security within its surrounding environment and identifies the external components that interact with the system. These include the Wi-Fi transmitter, ESP32-S3 receiver boards, recording computers, and experiment operator. The diagram establishes the system boundary and provides a clearer understanding of which components belong to Titan Security and which provide external input or interaction. The operator is responsible for arranging the equipment, starting and monitoring data collection, and managing the recordings used during testing. The external Wi-Fi equipment provides the signals needed for CSI measurements, while the surrounding test environment can introduce reflections, movement, and interference that affect the collected data. This context helps define the system's operating environment and the equipment required to conduct controlled experiments.
+
+![Sequence Diagram](../docs/design/diagrams/sequence-diagram.png)
+
+**Figure 5 - Sequence Diagram.**
+
+Figure 5 illustrates the sequence of interactions between the different components of the Titan Security system during the data collection process. It shows how the components communicate and how information moves through the system over time. The process begins with the Wi-Fi transmitter sending signals through the test environment. The ESP32-S3 receivers collect CSI measurements from the incoming Wi-Fi frames and transfer the recorded information to the connected computers. The recording computers then store the measurements so they can be reviewed and processed for further analysis. This sequence helps explain the order in which the system components operate and how CSI measurements move from initial collection to later processing and evaluation.
+
 ### 4.3 Specification and design documents
 
 **Every specification and design document the team writes must be listed here** with the objective it serves. This section acts as the index of the project's technical detail. CI gate G9 checks for links to these documents.
