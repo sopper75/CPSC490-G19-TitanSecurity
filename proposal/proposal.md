@@ -119,6 +119,10 @@ Complete the Sprint 2 review in `docs/sprint-reviews/sprint-2.md`, recording pro
 **Objective 4.4: Release the end-of-Sprint-2 build to main.**  
 Merge the reviewed Sprint 2 work from develop into main through a release branch and tag it v0.2, so main holds the work submitted for the sprint. **[[story:#73]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/73).**
 
+**Objective 4.5: Add documentation for project proposal for enviornment**
+Write §4 environment of the Titan Security project proposal, describing the operating and testing environment, three per-epic specification summaries and a design narrative. **[[story:#97]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/97).**
+
+
 ## 3. Proposed Approaches
 
 Our approach consists of mounting Wifi antennas to tripods, connected to a mini microcontroller detecting CSI packets, and sending the packets received to two computers. These two computers jobs are to filter the packets for any traffic that is not needed. The computers will then send the filtered packets to a main processing computer, which then processes the CSI packets to detect for drone movement & detection.
@@ -136,6 +140,18 @@ For the November indoor trial, we placed four Seeed Studio XIAO ESP32-S3 receive
 Two MacBooks each recorded data from two receivers through a USB hub. Each MacBook saved the raw readings locally so we could reanalyze the trial afterward. It also sent a summary over an Ethernet switch to a third MacBook, which displayed one live graph per receiver. The switch connected the three computers. The router provided the wireless link to the receivers and was separate from that wired network.
 
 We built the receiver firmware in C with ESP-IDF 6.0.3 using Espressif’s ESP-CSI router example. We first tested a single receiver on Windows 11 before running the four-receiver setup on macOS. On the recording laptops, Python and pyserial read the USB data. For offline analysis, we used NumPy to calculate how much the signal amplitude varied and Matplotlib to plot those changes over time. The November graphs used these calculations directly; machine learning remains a later stage of the project. [task:#86](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/86)
+
+#### Testing environment
+
+Testing takes place in a controlled area chosen so that the conditions of each session can be documented and repeated. The November indoor trial established the baseline arrangement. Four receivers stood on tripods around the test area, and the router was at a fixed position. A movable metal reflector stood in for a drone. The trial compared four conditions: stillness, a person walking, the reflector moving, and a person walking while the reflector moved. Reflector recordings are labeled as surrogate trials and kept separate from drone trials.
+
+Later sessions will add flights with an actual drone and extend the conditions to the four classes defined in the Drone Detection specification: drone activity, empty background, human movement, and wireless interference. For the effective-range tests under Objective 3.2, the team plans to mount the receivers at roughly 1.2 to 1.5 m and measure distance as the horizontal ground distance from the center of the receiver array to the target. The tested distances, the number of trials at each distance, and the success criterion will be fixed before any range trial is run, so that the results cannot shape the criteria used to judge them.
+
+#### Environmental conditions and setup considerations
+
+Because CSI reflects every path the signal takes from transmitter to receiver, anything that changes those paths changes the measurement. Indoors, walls, floors, furniture, and equipment create multipath reflections, so the same target can produce different readings in different rooms or at different positions within one room. A person is a larger and more reflective target than a small drone, which makes human movement both a likely source of false detections and an explicit test condition. The 2.4 GHz band is shared with campus Wi-Fi networks, Bluetooth devices, and other equipment, whose traffic can add noise to the channel. The team therefore records the channel used in each session and filters out frames that did not come from the test devices.
+
+Antenna height, orientation, and spacing all affect signal strength, as do the distance between transmitter and receivers and whether the path between them is line-of-sight. For that reason, the equipment arrangement is recorded with every session and held constant within any set of trials that will be compared. Because two separate computers record the receivers, their clocks need to be aligned before recordings from different receivers can be combined. Outdoor sessions add wind, temperature changes, and nearby moving vehicles or vegetation as further sources of variation, and these will be noted with each recording. To control for these effects, the team plans to begin each session with a recording of the empty area as its baseline, and to store the condition label, session identifier, equipment arrangement, and channel alongside every timestamped recording. [task:#99](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/99)
 
 **Design diagrams:** This section includes the Wi-Fi CSI sensing data-flow diagrams. The team must also supply a high-level architecture diagram and a system/context diagram, along with other appropriate design views, and keep authoritative copies in `docs/design/`.
 
