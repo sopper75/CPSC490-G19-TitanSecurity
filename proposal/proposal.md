@@ -155,7 +155,17 @@ Antenna height, orientation, and spacing all affect signal strength, as do the d
 
 **Design diagrams:** This section includes the Wi-Fi CSI sensing data-flow diagrams. The team must also supply a high-level architecture diagram and a system/context diagram, along with other appropriate design views, and keep authoritative copies in `docs/design/`.
 
-### 4.2 Wi-Fi CSI Sensing — Data Flow Design
+### 4.2 Epic Specification Summaries
+
+**Wi-Fi CSI Sensing (Epic #2).** The sensing specification defines how the team configures the transmitter and receivers, captures CSI, and prepares recordings for later analysis. It covers Objective 1.1 (#8), which requires a working transmitter–receiver pair and a demonstrated capture of genuine CSI frames, and Objective 1.2 (#13), which requires each recording to be saved to a timestamped file with a session identifier and checked for missing fields, malformed values, and timestamp inconsistencies. The validator reports how many records it inspected, accepted, and rejected, and original recordings are preserved whenever processed versions are created. The non-functional requirements center on reproducibility: a teammate must be able to repeat the setup and validation using only the documentation. The full requirements and acceptance criteria are in [`docs/specs/wifi-csi-sensing.md`](../docs/specs/wifi-csi-sensing.md).
+
+**Drone Detection (Epic #3).** The detection specification builds on the validated recordings from Epic #2. Objective 2.1 (#14) requires labeled datasets for drone activity, empty background, human movement, and interference. Each recording must document its condition and equipment arrangement, and the dataset must report how much data exists for each condition. Objective 2.2 (#15) requires a classifier that distinguishes drone presence from non-drone conditions. Whole recording sessions are assigned to training, validation, or final test groups, so segments from one session never appear in more than one group. Objective 2.3 (#7) requires estimates of drone position and movement in a controlled area, compared against recorded reference positions, with position error, movement consistency, and failure cases reported. Surrogate targets such as the metal reflector must be labeled separately, and only sessions with a confirmed drone flight count as evidence of drone presence. The full specification is in [`docs/specs/drone-detection.md`](../docs/specs/drone-detection.md).
+
+**Evaluation (Epic #4).** The evaluation specification defines how the prototype's performance and practical trade-offs are measured. Objective 3.1 (#6) requires accuracy, missed detections, and false detections on held-out recordings, with each metric's calculation defined and results reported separately for each condition so that the effects of human movement and interference are visible. Objective 3.2 (#16) requires repeated trials at several distances, against a success criterion fixed in advance, and reports the farthest tested distance that meets it, or states that none did. Objective 3.3 (#17) compares the prototype's cost, size, weight, and setup time with published information for selected conventional radar systems. This comparison is based on the literature: the team is not acquiring radar equipment, and it marks unavailable data and differences in testing conditions explicitly. The full specification is in [`docs/specs/evaluation.md`](../docs/specs/evaluation.md).
+
+The three epics form a dependency chain. Detection relies on validated recordings from sensing, and evaluation relies on the classifier from detection. Each specification therefore states that results built on packet metadata or synthetic data cannot be presented as evidence of drone detection.
+
+### 4.3 Wi-Fi CSI Sensing — Data Flow Design
 
 The proposed Wi-Fi sensing system will collect wireless channel measurements and prepare them for later drone-detection analysis. The data-flow design supports Objective 1.1 (CSI acquisition, issue #8) and Objective 1.2 (timestamped recording and data quality, issue #13).
 
@@ -193,7 +203,17 @@ Figure 4 illustrates Titan Security within its surrounding environment and ident
 
 Figure 5 illustrates the sequence of interactions between the different components of the Titan Security system during the data collection process. It shows how the components communicate and how information moves through the system over time. The process begins with the Wi-Fi transmitter sending signals through the test environment. The ESP32-S3 receivers collect CSI measurements from the incoming Wi-Fi frames and transfer the recorded information to the connected computers. The recording computers then store the measurements so they can be reviewed and processed for further analysis. This sequence helps explain the order in which the system components operate and how CSI measurements move from initial collection to later processing and evaluation.
 
-### 4.3 Specification and design documents
+#### Design narrative
+
+Figures 3 through 5 together describe how Titan Security's components interact, following the order in which data moves through the system. As Figure 5 shows, a session begins when the experiment operator configures the router's network, channel, and bandwidth, then starts recording on the capture computers and enters the session's condition and equipment arrangement. The router transmits through the test area, and each ESP32-S3 receiver exchanges traffic with it and extracts CSI from the incoming frames. The drone, people, or objects in the area alter those frames before they arrive.
+
+Each receiver streams its measurements over USB to a capture computer, which reads them with Python and pyserial. Two capture computers each serve two receivers through a USB hub. They save the raw readings locally, so every trial can be reanalyzed, and forward a summary over a wired Ethernet switch to a third computer that displays one live graph per receiver. Sending these summaries over the wired network keeps recording traffic off the wireless channel being measured. A traffic filter then removes baseline traffic and frames from devices outside the test, and the remaining frames are written as timestamped recordings tagged with the session identifier. The validator checks each recording and returns counts of accepted and rejected records to the operator, and accepted recordings enter the validated dataset.
+
+Figure 4 draws the system boundary around this sensing pipeline. The operator, the transmitter, and the test environment lie outside it and supply settings, signals, and disturbances. The drone detection pipeline sits downstream as a consumer of validated recordings. Within Figure 3, the acquisition and processing stages exist in their current form: the November trial produced live graphs and offline NumPy analysis of amplitude variation. The analysis stages are planned. The classifier developed under Epic #3 will consume labeled, validated recordings, and the evaluation work under Epic #4 will score its predictions against the recorded conditions.
+
+Several design decisions shaped this architecture. The team uses several inexpensive receivers placed around the area rather than one specialized receiver. This gives the system multiple views of the same disturbance while keeping the cost and weight of the kit low. ESP32-S3 boards were chosen as receivers because the ALFA adapters' driver does not expose CSI. The alternatives considered were patched OpenWrt firmware that extracts CSI on the MediaTek-based router, and packet-only sensing through the ALFA adapters in monitor mode. The first adds firmware risk, and the second gives a weaker signal than true CSI. Raw recordings are preserved alongside processed versions so that later changes to filtering or validation can be applied to earlier trials without repeating them.
+
+### 4.4 Specification and design documents
 
 **Every specification and design document the team writes must be listed here** with the objective it serves. This section acts as the index of the project's technical detail. CI gate G9 checks for links to these documents.
 
@@ -215,7 +235,7 @@ The specification was merged through for Wi_Fi Sensing Specification [PR #46](ht
 
 **Remaining documentation:** The team must add other specifications and design documents to this index as they are completed. The repository's worked examples, `docs/specs/example-spec.md` and `docs/design/example-design.md`, should be handled according to the course repository instructions.
 
-### 4.4 Planned activities — the work items
+### 4.5 Planned activities — the work items
 
 The goals and objectives are listed in §2 as epics and user stories. The following table links supporting work items.
 
@@ -242,7 +262,7 @@ The goals and objectives are listed in §2 as epics and user stories. The follow
 | [[story:#16]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/16) | user-story | Objective 3.2: Measure drone-detection performance at multiple distances to determine the effective detection range | Epic #4 | Zachary-Headley | Sprint 4 |
 | [[story:#17]](https://github.com/sopper75/CPSC490-G19-TitanSecurity/issues/17) | user-story | Objective 3.3: Compare prototype cost, portability, and setup effort with selected conventional radar systems using documented evidence | Epic #4 | 23jdo5 | Sprint 4 |
 
-### 4.5 Remaining work
+### 4.6 Remaining work
 
 Sprint 3 builds the data and modeling foundation. Titan Security plans to finish the recording process so CSI measurements are saved to timestamped files and checked for missing or malformed records (Objective 1.2), then use it to collect labeled datasets for drone activity, empty background, human movement, and interference conditions (Objective 2.1). A classifier that separates drone presence from non-drone conditions will be trained and evaluated on recordings held out from training (Objective 2.2). Position and movement estimates will be implemented and compared against recorded reference positions in a controlled test area (Objective 2.3). The hardware and software setup description, the classifier training and evaluation plan, and an evaluation report for Objective 3.1 are merged. The Drone Detection and Evaluation specification text for §4 carries over from Sprint 2.
 
